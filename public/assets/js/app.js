@@ -56,7 +56,6 @@ function signUp(event) {
       $('#login').tab('show');
     })
     .catch(err => {
-      console.log(err);
       return swal({
         title: err.responseJSON.message,
         icon: 'error'
@@ -130,6 +129,7 @@ function getUserProfile() {
       $('#user-tabs, #forms, #right-column-title').hide();
       $('#user-info').show();
       $('#full-name').text(userData.fullName);
+      getMatches();
     })
     .catch(err => {
       console.log(err);
@@ -137,9 +137,71 @@ function getUserProfile() {
     });
 }
 
+
+let $matchData = $('<ul>')
+ let $username
+ let $firstName
+ let $age
+ let $gender
+ let $movies = []
+
+ function getMatches() {
+  const token = localStorage.getItem('accessToken');
+
+   $.ajax({
+     url: '/api/user/movies',
+     method: 'GET',
+     headers: {
+       authorization: `Bearer ${token}`
+     }
+   }).then(function (response) {
+     console.log(response);
+     for (i = 0; i < response.length; i++) {
+       $username = response[i].username,
+         $firstName = response[i].firstName,
+         $age = response[i].age,
+         $gender = response[i].gender,
+         $movies = [response[i].movies[0], response[i].movies[1], response[i].movies[2], response[i].movies[3], response[i].movies[4]]
+     }
+
+   });
+
+   $matchData.append(
+     $("<li>").text($username),
+     $("<li>").text($firstName),
+     $("<li>").text($age),
+     $("<li>").text($gender),
+     $("<li>").text($movies)
+   )
+
+   $matchData.appendTo($('#post-feed'));
+ };
+
+
+ $("#signup-form").on("submit", function (event) {
+   event.preventDefault();
+   getMatches()
+     ("#post-feed").append($matchData)
+ });
+
+ $("login-form").on("submit", function (event) {
+   event.preventDefault();
+   getMatches();
+   ("post-feed").append($matchData)
+ });
+
 $(document).ready(function() {
 
   $("#login-form").on('submit', login);
   $('#signup-form').on('submit', signUp);
+
+
+
+
+ $("#signup-form").on("submit", function(event) {
+   event.preventDefault();
+   getMatches()
+   ("#post-feed").append($matchData)
+ });
 
 })

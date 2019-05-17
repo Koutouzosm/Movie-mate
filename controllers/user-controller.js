@@ -63,10 +63,11 @@ const getMovies = async(req, res) => {
     movies: {
       $in: movieList.movies
     },
-    _id: { $not: req._id}
+    _id: { $ne: req._id}
   }).then(function(movieMatches) {
     res.json(movieMatches)
   }).catch (function(err) {
+    console.log(err);
     res.status(422).json(err)
   })
 }
