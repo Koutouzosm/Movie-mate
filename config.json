@@ -1,0 +1,8 @@
+{
+    "tmdbApiKey": "7bc99c9ee75ec56de6b188d9007199dc",
+    "dbServer": "mongodb://localhost/moviedb",
+    "mainMoviesCollection": "movie",
+    "mainPeopleCollection": "person",
+    "tmpMoviesCollection": "newmovie",
+    "tmpPeopleCollection": "newperson"
+}
