@@ -28,7 +28,7 @@ router
 // GET route to match
 router
 .route('/movies')
-.get(getMovies)
+.get(withAuth, getMovies)
 
 
 

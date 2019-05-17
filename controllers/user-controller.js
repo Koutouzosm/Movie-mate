@@ -40,8 +40,7 @@ const register = (req, res) => {
       });
     }
     else {
-      userSelection.push(req.body.movies)
-      userSelection = userSelection.reduce((a, b) => a.concat(b), [])
+      userSelection = [...req.body.movies];
       console.log(userSelection)
       res.status(200).json({
         success: true,
@@ -52,13 +51,19 @@ const register = (req, res) => {
 
 }
 
-const getMovies = (req, res) => {
-  
+const getMovies = async(req, res) => {
+  const [movieErr, movieList] = await handle(User.findById(req._id));
+  console.log(movieList);
+
+  if (movieErr) {
+    return res.status(500).json(err);
+  }
 
   User.find({
     movies: {
-      $in: userSelection
-    }
+      $in: movieList.movies
+    },
+    _id: { $not: req._id}
   }).then(function(movieMatches) {
     res.json(movieMatches)
   }).catch (function(err) {
@@ -114,10 +119,10 @@ const login = async (req, res) => {
       });
 
       // respond with web token to the front end
-      res.status(200).json(token);
+      res.cookie('token', token, {httpOnly: true}).status(200).json(token);
 
       // if you want to use session cookies instead...
-      // res.cookie('token', token, {httpOnly: true})
+      // res
     }
 
   }

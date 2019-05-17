@@ -9,31 +9,14 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
   <link rel="stylesheet" href="https://use.typekit.net/zhu6gge.css" />
   <link rel="stylesheet" href="/assets/css/style.css" />
-  <title>Movie Name</title>
+  <title>Movie Mate</title>
 </head>
 
 <body>
-  <div class="hero">
-    <h1 class="sticky-top text-center display-1 my-auto"Movie Mate!!</h1>
-  </div>
-  <nav class="navbar navbar-dark bg-dark navbar-lg sticky-top mt-0">
-    <h3 class="display-4 mx-auto" id="get-posts"></h3>
-  </nav>
-
-  <div class="container my-5">
-    <div class="row">
-      <!-- left column - POST INFO -->
-      <div class="col-12 col-md-8">
-        <h3 id="content-title"></h3>
-        <ul id="post-feed" class="list-group">
-          <!-- posts go here -->
-        </ul>
-      </div>
-      <!-- end left -->
-
+  
       <!-- right column - USER INFO -->
       <div class="col-12 col-md-4">
-        <h3 id="right-column-title">Login/Sign Up!</h3>
+        <h3 id="right-column-title" class="text-center">Login/Sign Up!</h3>
         <!-- List group -->
         <div class="list-group list-group-horizontal-md" id="user-tabs" role="tablist">
           <a class="list-group-item list-group-item-action active" data-toggle="list" href="#login" role="tab">Login</a>
@@ -59,8 +42,8 @@
 
           <!-- signup form -->
           <div class="tab-pane" id="signup" role="tabpanel">
-            <form id="signup-form">
-              <div class="form-group text-center">
+            <form id="signup-form" class="text-center">
+              <div class="form-group">
                 <label for="email-input">Email</label>
                 <input type="text" id="email-input" class="form-control" />
               </div>
@@ -88,7 +71,7 @@
                   <label for="email-input">Gender</label>
                   <input type="text" id="gender-input" class="form-control" />
                 </div>
-                <div>Enter your top 5 favorite movies!</div>
+                <div><h3>Enter your top 5 favorite movies!</h3></div>
                 <div class="form-group">
                     <label for="email-input">Movie</label>
                     <input type="text" id="movie1-input" class="form-control" />
@@ -113,6 +96,17 @@
             </form>
           </div>
           <!-- end signup form -->
+
+          <div class="container my-5">
+            <div class="row">
+              <!-- left column - POST INFO -->
+              <div class="col-12 col-md-8">
+                <h3 id="content-title"></h3>
+                <ul id="post-feed" class="list-group">
+                  <!-- posts go here -->
+                </ul>
+              </div>
+              <!-- end left -->
         </div>
         <!-- end form tabs -->
         <div id="user-info">
