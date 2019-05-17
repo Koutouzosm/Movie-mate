@@ -126,9 +126,9 @@ function getUserProfile() {
     })
     .then(function (userData) {
       console.log(userData);
-      $('#user-tabs, #forms, #right-column-title').hide();
-      $('#user-info').show();
-      $('#full-name').text(userData.fullName);
+      // $('#user-tabs, #forms, #right-column-title').hide();
+      // $('#user-info').show();
+      // $('#full-name').text(userData.fullName);
       getMatches();
     })
     .catch(err => {
@@ -138,7 +138,7 @@ function getUserProfile() {
 }
 
 
-let $matchData = $('<ul>')
+let $matchData = $('<div>')
  let $username
  let $firstName
  let $age
@@ -162,46 +162,45 @@ let $matchData = $('<ul>')
          $age = response[i].age,
          $gender = response[i].gender,
          $movies = [response[i].movies[0], response[i].movies[1], response[i].movies[2], response[i].movies[3], response[i].movies[4]]
+
+         $matchData.append(
+          $("<h4>").text($username),
+          $("<h4>").text($firstName),
+          $("<p>").text($age),
+          $("<p>").text($gender),
+          $("<p>").text($movies)
+        )
      }
 
    });
-
-   $matchData.append(
-     $("<li>").text($username),
-     $("<li>").text($firstName),
-     $("<li>").text($age),
-     $("<li>").text($gender),
-     $("<li>").text($movies)
-   )
+   console.log($matchData)
+  //  $matchData.append(
+  //    $("<h4>").text($username),
+  //    $("<h4>").text($firstName),
+  //    $("<p>").text($age),
+  //    $("<p>").text($gender),
+  //    $("<p>").text($movies)
+  //  )
 
    $matchData.appendTo($('#post-feed'));
  };
 
 
- $("#signup-form").on("submit", function (event) {
-   event.preventDefault();
-   getMatches()
-     ("#post-feed").append($matchData)
- });
+//  $("#signup-form").on("submit", function (event) {
+//    event.preventDefault();
+//    getMatches()
+//      $("#post-feed").append($matchData)
+//  });
 
- $("login-form").on("submit", function (event) {
-   event.preventDefault();
-   getMatches();
-   ("post-feed").append($matchData)
- });
+//  $("#login-form").on("submit", function (event) {
+//    event.preventDefault();
+//    getMatches();
+//    $("#post-feed").append($matchData)
+//  });
 
 $(document).ready(function() {
 
   $("#login-form").on('submit', login);
   $('#signup-form').on('submit', signUp);
-
-
-
-
- $("#signup-form").on("submit", function(event) {
-   event.preventDefault();
-   getMatches()
-   ("#post-feed").append($matchData)
- });
 
 })

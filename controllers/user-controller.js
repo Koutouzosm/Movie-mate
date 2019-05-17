@@ -25,7 +25,7 @@ const register = (req, res) => {
   const { email, password, firstName, lastName, userName, age, gender, movies } = req.body;
 
   // create a new user
-  const user = new User({email, password, firstName, lastName, userName, age, gender, movies});
+  const user = new User({ email, password, firstName, lastName, userName, age, gender, movies });
 
   // run setFullName()
   user.setFullName();
@@ -51,22 +51,27 @@ const register = (req, res) => {
 
 }
 
-const getMovies = async(req, res) => {
+const getMovies = async (req, res) => {
   const [movieErr, movieList] = await handle(User.findById(req._id));
   console.log(movieList);
 
   if (movieErr) {
     return res.status(500).json(err);
   }
-
+  console.log(movieList);
   User.find({
-    movies: {
-      $in: movieList.movies
-    },
-    _id: { $ne: req._id}
-  }).then(function(movieMatches) {
+    $and: [
+      {
+        movies: {
+          $in: [...movieList.movies]
+        }
+
+      },
+      { _id: { $ne: req._id } }
+    ]
+  }).then(function (movieMatches) {
     res.json(movieMatches)
-  }).catch (function(err) {
+  }).catch(function (err) {
     console.log(err);
     res.status(422).json(err)
   })
@@ -80,7 +85,7 @@ const login = async (req, res) => {
   const { userName, password } = req.body;
 
   // find user based on userName
-  const [ findUserErr, userInfo ] = await handle(User.findOne({userName}));
+  const [findUserErr, userInfo] = await handle(User.findOne({ userName }));
 
   if (findUserErr) {
     console.log(findUserErr);
@@ -120,7 +125,7 @@ const login = async (req, res) => {
       });
 
       // respond with web token to the front end
-      res.cookie('token', token, {httpOnly: true}).status(200).json(token);
+      res.cookie('token', token, { httpOnly: true }).status(200).json(token);
 
       // if you want to use session cookies instead...
       // res
@@ -131,7 +136,7 @@ const login = async (req, res) => {
 
 // get user profile
 // GET '/api/user' (this will be run through auth middleware)
-const getUserProfile = async (req,res) => {
+const getUserProfile = async (req, res) => {
 
   const [userErr, userProfile] = await handle(User.findById(req._id));
 
