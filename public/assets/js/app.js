@@ -95,6 +95,7 @@ function login(event) {
       console.log(accessToken);
       localStorage.setItem('accessToken', accessToken);
       getUserProfile();
+      // getMatches();
     })
     .catch(err => {
       console.log(err);
