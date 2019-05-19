@@ -13,115 +13,118 @@
 </head>
 
 <body>
-  
-      <!-- right column - USER INFO -->
-      <div class="col-12 col-md-4">
-        <h3 id="right-column-title" class="text-center">Login/Sign Up!</h3>
-        <!-- List group -->
-        <div class="list-group list-group-horizontal-md" id="user-tabs" role="tablist">
-          <a class="list-group-item list-group-item-action active" data-toggle="list" href="#login" role="tab">Login</a>
-          <a class="list-group-item list-group-item-action" data-toggle="list" href="#signup" role="tab">Sign Up!</a>
-        </div>
 
-        <!-- Tab panes -->
-        <div class="tab-content my-4" id="forms">
-          <!-- login form -->
-          <div class="tab-pane active" id="login" role="tabpanel">
-            <form id="login-form">
-              <div class="form-group">
-                <label for="email-input-login">UserName</label>
-                <input type="text" id="userName-input-login" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label for="password-input-login">Password</label>
-                <input type="password" id="password-input-login" class="form-control" />
-              </div>
-              <button type="submit" class="btn btn-block btn-success">Login!</button>
-            </form>
-            <div class="col-12 col-md-8">
-              <h3 id="content-title"></h3>
-              <div id="post-feed">
-                <!-- posts go here -->
-              </div>
-            </div>
+
+  <div class="col-4">
+    <div class="col-8">
+      <div class="class container my-5">
+        <div class="col-12 col-md-8">
+          <h3 id="content-title"></h3>
+          <div id="post-feed">
           </div>
-
-          <!-- signup form -->
-          <div class="tab-pane" id="signup" role="tabpanel">
-            <form id="signup-form" class="text-center">
-              <div class="form-group">
-                <label for="email-input">Email</label>
-                <input type="text" id="email-input" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label for="first-name-input">First Name</label>
-                <input type="text" id="first-name-input" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label for="last-name-input">Last Name</label>
-                <input type="text" id="last-name-input" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label for="email-input">Username</label>
-                <input type="text" id="username-input" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label for="password-input">Password</label>
-                <input type="password" id="password-input" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label for="email-input">Age</label>
-                <input type="text" id="age-input" class="form-control" />
-              </div>
-              <div class="form-group">
-                  <label for="email-input">Gender</label>
-                  <input type="text" id="gender-input" class="form-control" />
-                </div>
-                <div><h3>Enter your top 5 favorite movies!</h3></div>
-                <div class="form-group">
-                    <label for="email-input">Movie</label>
-                    <input type="text" id="movie1-input" class="form-control" />
-                  </div>
-                  <div class="form-group">
-                      <label for="email-input">Movie</label>
-                      <input type="text" id="movie2-input" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label for="email-input">Movie</label>
-                        <input type="text" id="movie3-input" class="form-control" />
-                      </div>
-                      <div class="form-group">
-                          <label for="email-input">Movie</label>
-                          <input type="text" id="movie4-input" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email-input">Movie</label>
-                            <input type="text" id="movie5-input" class="form-control" />
-                          </div>
-              <button type="submit" class="btn btn-block btn-success">Sign Up!</button>
-            </form>
-            <div class="container my-5">
-            <div class="row">
-              <!-- left column - POST INFO -->
-              <!-- <div class="col-12 col-md-8">
-                <h3 id="content-title"></h3>
-                <div id="post-feed">
-                  <!-- posts go here -->
-                </div>
-              </div> -->
-              <!-- end left -->
-        </div>
-          </div>
-          <!-- end signup form -->
-
-          
-        <!-- end form tabs -->
-        <div id="user-info">
-          <h3 id="full-name"></h3>
-          <button id="logout" class="btn btn-block btn-dark">Logout</button>
         </div>
       </div>
     </div>
+    <h3 id="left-column-title" class="text-center">Login/Sign Up!</h3>
+    <div class="list-group list-group-horizontal-md" id="user-tabs" role="tablist">
+      <a class="list-group-item list-group-item-action active" data-toggle="list" href="#login" role="tab">Login</a>
+      <a class="list-group-item list-group-item-action" data-toggle="list" href="#signup" role="tab">Sign Up!</a>
+    </div>
+
+    <div class="tab-content my-4" id="forms">
+      <div class="tab-pane active" id="login" role="tabpanel">
+        <form id="login-form">
+          <div class="form-group">
+            <label for="email-input-login">UserName</label>
+            <input type="text" id="userName-input-login" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="password-input-login">Password</label>
+            <input type="password" id="password-input-login" class="form-control" />
+          </div>
+          <button type="submit" class="btn btn-block btn-success">Login!</button>
+        </form>
+      </div>
+
+      <!-- signup form -->
+      <div class="tab-pane" id="signup" role="tabpanel">
+        <form id="signup-form" class="text-center">
+          <div class="form-group">
+            <label for="email-input">Email</label>
+            <input type="text" id="email-input" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="first-name-input">First Name</label>
+            <input type="text" id="first-name-input" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="last-name-input">Last Name</label>
+            <input type="text" id="last-name-input" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="email-input">Username</label>
+            <input type="text" id="username-input" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="password-input">Password</label>
+            <input type="password" id="password-input" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="email-input">Age</label>
+            <input type="text" id="age-input" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="email-input">Gender</label>
+            <input type="text" id="gender-input" class="form-control" />
+          </div>
+          <div>
+            <h3>Enter your top 5 favorite movies!</h3>
+          </div>
+          <div class="form-group">
+            <label for="email-input">Movie</label>
+            <input type="text" id="movie1-input" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="email-input">Movie</label>
+            <input type="text" id="movie2-input" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="email-input">Movie</label>
+            <input type="text" id="movie3-input" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="email-input">Movie</label>
+            <input type="text" id="movie4-input" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="email-input">Movie</label>
+            <input type="text" id="movie5-input" class="form-control" />
+          </div>
+          <button type="submit" class="btn btn-block btn-success">Sign Up!</button>
+        </form>
+      </div>
+    </div>
+
+
+
+    <!-- end form tabs -->
+    <div id="user-info">
+      <h3 id="full-name"></h3>
+      <button id="logout" class="btn btn-block btn-dark">Logout</button>
+    </div>
+    <div class="container my-5">
+      <div class="class container my-5">
+        <div class="col-12 col-md-8">
+          <h3 id="content-title"></h3>
+          <div id="post-feed">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

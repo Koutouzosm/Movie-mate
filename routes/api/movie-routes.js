@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const {moviePreference} = require("../../controllers/movie-controller");
+const { moviePreference } = require("../../controllers/movie-controller");
 
 router
   .route('/')
