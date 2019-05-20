@@ -159,23 +159,27 @@ function getMatches() {
   }).then(function (response) {
     console.log(response);
     for (i = 0; i < response.length; i++) {
-      $username = response[i].username,
-        $firstName = response[i].firstName,
-        $age = response[i].age,
-        $gender = response[i].gender,
-        $movies = 
-        `${response[i].movies[0]},
-        ${response[i].movies[1]},
-        ${response[i].movies[2]},
-        ${response[i].movies[3]},
-        ${response[i].movies[4]}`
+      $username = response[i].username;
+        $firstName = response[i].firstName;
+        $age = response[i].age;
+        $gender = response[i].gender;
+
+        let $movieText1 = response[i].movies[0];
+        let $movieText2 = response[i].movies[1];
+        let $movieText3 = response[i].movies[2];
+        let $movieText4 = response[i].movies[3];
+        let $movieText5 = response[i].movies[4];
 
       $matchData.append(
         $("<h4>").text($username),
         $("<h4>").text($firstName),
         $("<p>").text($age),
         $("<p>").text($gender),
-        $("<p>").text(`${$movies}`)
+        $("<p>").text($movieText1),
+        $("<p>").text($movieText2),
+        $("<p>").text($movieText3),
+        $("<p>").text($movieText4),
+        $("<p>").text($movieText5)
       )
     }
 
