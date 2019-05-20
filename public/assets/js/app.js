@@ -149,7 +149,7 @@ let $movies = []
 
 function getMatches() {
   const token = localStorage.getItem('accessToken');
-
+  
   $.ajax({
     url: '/api/user/movies',
     method: 'GET',
@@ -163,14 +163,19 @@ function getMatches() {
         $firstName = response[i].firstName,
         $age = response[i].age,
         $gender = response[i].gender,
-        $movies = [response[i].movies[0], response[i].movies[1], response[i].movies[2], response[i].movies[3], response[i].movies[4]]
+        $movies = 
+        `${response[i].movies[0]},
+        ${response[i].movies[1]},
+        ${response[i].movies[2]},
+        ${response[i].movies[3]},
+        ${response[i].movies[4]}`
 
       $matchData.append(
         $("<h4>").text($username),
         $("<h4>").text($firstName),
         $("<p>").text($age),
         $("<p>").text($gender),
-        $("<p>").text($movies)
+        $("<p>").text(`${$movies}`)
       )
     }
 
